@@ -30,7 +30,7 @@ namespace FFmpeg.NET.Tests
                 x => ffmpeg.Complete -= x,
                 async () => await ffmpeg.ConvertAsync(_fixture.VideoFile, output)
             );
-            
+
             Assert.True(File.Exists(output.FileInfo.FullName));
             output.FileInfo.Delete();
             Assert.False(File.Exists(output.FileInfo.FullName));

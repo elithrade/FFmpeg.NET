@@ -27,7 +27,7 @@ namespace FFmpeg.NET.Tests
             var ffmpeg = new Engine(_fixture.FFmpegPath);
             var meta1 = await ffmpeg.GetMetaDataAsync(_fixture.VideoFile);
             var meta2 = await ffmpeg.GetMetaDataAsync(_fixture.AudioFile);
-            
+
             _output.WriteLine(meta1?.ToString() ?? "-- KEIN META ! --");
             _output.WriteLine(meta2?.ToString());
 
@@ -80,6 +80,6 @@ namespace FFmpeg.NET.Tests
                 Assert.Contains($"file:///{file1.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)}", xspf);
                 Assert.Contains($"file:///{file2.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar)}", xspf);
             }
-        }    
+        }
     }
 }

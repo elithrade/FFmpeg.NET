@@ -49,7 +49,7 @@ namespace FFmpeg.NET
             OnConversionError(new ConversionErrorEventArgs(exception, parameters.InputFile, parameters.OutputFile));
         }
 
-        private string GetExceptionMessage(List<string> messages) 
+        private string GetExceptionMessage(List<string> messages)
             => messages.Count > 1
                 ? messages[1] + messages[0]
                 : string.Join(string.Empty, messages);
