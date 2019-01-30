@@ -10,7 +10,8 @@ namespace FFmpeg.NET.Tests.Fixtures
     {
         public BaseFixture()
         {
-            using (var file = File.OpenText("Properties\\launchSettings.json"))
+            var path = Path.Combine("Properties", "launchSettings.json");
+            using (var file = File.OpenText(path))
             {
                 var reader = new JsonTextReader(file);
                 var jObject = JObject.Load(reader);

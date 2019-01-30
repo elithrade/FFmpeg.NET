@@ -12,6 +12,11 @@ namespace FFmpeg.NET
         public Engine(string ffmpegPath)
         {
             _ffmpegPath = ffmpegPath ?? throw new ArgumentNullException(ffmpegPath, "FFmpeg executable path needs to be provided.");
+            var fileInfo = new System.IO.FileInfo(_ffmpegPath);
+            if (!fileInfo.Exists)
+            {
+                throw new ArgumentException("FFmpeg executable path does not exist");
+            }
         }
 
         public event EventHandler<ConversionProgressEventArgs> Progress;

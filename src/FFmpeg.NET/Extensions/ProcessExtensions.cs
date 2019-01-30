@@ -17,7 +17,12 @@ namespace FFmpeg.NET.Extensions
             process.Exited += (sender, e) =>
             {
                 if (process.ExitCode != 0)
+                {
                     onException?.Invoke(process.ExitCode);
+                }
+
+                // Wait for async stdout/stderr stream
+                process.WaitForExit();
                 tcs.TrySetResult(process.ExitCode);
             };
 
